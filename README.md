@@ -8,6 +8,18 @@
     - cf. https://github.com/teampoltergeist/poltergeist#mac
 - `bundle install -j4 --path vendor/bundle`
 
+## usage
+### set env
+```bash
+export NOMURA_KEYS '01234567,01234568'
+export SLACK_API_TOKEN 'xxxxxxxxxxxxxxxxxxx'
+```
+
+### execute
+```bash
+$ ruby nomura_scraper.rb
+```
+
 ## 免責事項
 - 当ツールのご利用は利用者の責任において行ってください
 - 当ツールの開発者は、当プロジェクトの利用により生じた損害に対する責任を負いません
