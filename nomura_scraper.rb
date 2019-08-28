@@ -20,7 +20,6 @@ def slack_channel
 end
 
 keys.each do |key|
-  # web_client = WebClient.new '03311138'
   web_client = WebClient.new key
   fund = Fund.new web_client.body
 
