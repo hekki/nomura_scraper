@@ -9,7 +9,7 @@ require './slack/attachment'
 # NOTE: 野村證券の投資信託ファンド詳細ページのURLに含まれる 'KEY1' を、カンマ区切りで環境変数 'nomura_keys' に設定する
 #   URL example: https://advance.quote.nomura.co.jp/meigara/nomura2/qsearch.exe?F=users/nomura/detail2&KEY1=99999999
 def keys
-  keys = ENV['nomura_keys']
+  keys = ENV['NOMURA_KEYS']
   return [] if keys.nil?
 
   keys.split(',').map(&:strip)
