@@ -11,8 +11,8 @@
 ## usage
 ### set env
 ```bash
-export NOMURA_KEYS '01234567,01234568'
-export SLACK_API_TOKEN 'xxxxxxxxxxxxxxxxxxx'
+$ export NOMURA_KEYS '01234567,01234568'
+$ export SLACK_API_TOKEN 'xxxxxxxxxxxxxxxxxxx'
 ```
 
 ### execute
