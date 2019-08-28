@@ -3,8 +3,8 @@ Bundler.require
 
 require './web_client'
 require './fund'
-require './slack_notifier'
-require './slack_attachment'
+require './slack/notifier'
+require './slack/attachment'
 
 # NOTE: 野村證券の投資信託ファンド詳細ページのURLに含まれる 'KEY1' を、カンマ区切りで環境変数 'nomura_keys' に設定する
 #   URL example: https://advance.quote.nomura.co.jp/meigara/nomura2/qsearch.exe?F=users/nomura/detail2&KEY1=99999999
