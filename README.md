@@ -9,16 +9,36 @@
 - `bundle install -j4 --path vendor/bundle`
 
 ## usage
-### set env
-```bash
-$ export NOMURA_KEYS '01234567,01234568'
-$ export SLACK_API_TOKEN 'xxxxxxxxxxxxxxxxxxx'
+- このプロジェクトは[AWS Lambda](https://aws.amazon.com/jp/lambda/)上で実行することを前提としています
+
+### 1. docker image をビルドする
+Lambda にデプロイする前に依存gem をインストールためのdocker image をビルドします
+
+```sh
+$ IMAGE_NAME="nomura_scraper"
+$ IMAGE_TAG="1.0"
+
+$ docker build -t $IMAGE_NAME:$IMAGE_TAG .
 ```
 
-### execute
-```bash
-$ ruby nomura_scraper.rb
+### 2. gem のインストールする
+
+```sh
+$ docker run -v $(pwd):/app -it $IMAGE_NAME:$IMAGE_TAG /app/build.sh
 ```
+
+実行後に `nomura_scraper.zip` が生成されます
+
+### 3. AWS Lambda へデプロイする
+AWS マネジメントコンソールから、生成されたzip ファイルをデプロイします
+
+### 4.環境変数を設定
+以下2つの環境変数を設定してください
+
+| 変数名 | 値 |
+| -- | -- |
+| NOMURA_KEYS | 野村證券ファンド詳細ページのURLクエリパラメータ `KEY1` の値をカンマ区切りで指定
+| SLACK_API_TOKEN | slack のAPI トークン |
 
 ## 免責事項
 - 当ツールのご利用は利用者の責任において行ってください
