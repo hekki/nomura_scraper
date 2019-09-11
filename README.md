@@ -43,3 +43,6 @@ AWS マネジメントコンソールから、生成されたzip ファイルを
 ## 免責事項
 - 当ツールのご利用は利用者の責任において行ってください
 - 当ツールの開発者は、当プロジェクトの利用により生じた損害に対する責任を負いません
+
+## ライセンス
+[MIT license](https://github.com/hekki/nomura_scraper/blob/master/LICENSE)
