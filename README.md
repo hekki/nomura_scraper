@@ -39,6 +39,7 @@ AWS マネジメントコンソールから、生成されたzip ファイルを
 | -- | -- |
 | NOMURA_KEYS | 野村證券ファンド詳細ページのURLクエリパラメータ `KEY1` の値をカンマ区切りで指定
 | SLACK_API_TOKEN | slack のAPI トークン |
+| SLACK_CHANNEL | 通知先slack チャンネル (default: #general) |
 
 ## 免責事項
 - 当ツールのご利用は利用者の責任において行ってください
