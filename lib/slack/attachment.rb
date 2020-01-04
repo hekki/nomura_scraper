@@ -1,13 +1,12 @@
 class SlackAttachment
-  def initialize(fund:, web_client:)
+  def initialize(fund:)
     @fund = fund
-    @web_client = web_client
   end
 
   def make
     [{
       title: @fund.name,
-      title_link: @web_client.url,
+      title_link: @fund.url,
       pretext: pretext,
       text: text,
       color: color

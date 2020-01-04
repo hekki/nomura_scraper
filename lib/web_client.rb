@@ -4,16 +4,12 @@ require 'capybara/poltergeist'
 class IllegalStatusCodeErrror < StandardError; end
 
 class WebClient
-  def initialize(key)
-    @key = key
+  def initialize(url)
+    @url = url
   end
 
   def body
     session.body
-  end
-
-  def url
-    "https://advance.quote.nomura.co.jp/meigara/nomura2/qsearch.exe?F=users/nomura/detail2&KEY1=#{@key}"
   end
 
   private
@@ -26,7 +22,7 @@ class WebClient
     session = Capybara::Session.new(:poltergeist)
 
     session.driver.headers = { 'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X)' }
-    session.visit url
+    session.visit @url
     raise IllegalStatusCodeErrror.new "URL: #{url}, Status Code: #{session.status_code}" unless session.status_code == 200
 
     session

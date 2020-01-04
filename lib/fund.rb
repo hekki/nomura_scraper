@@ -1,8 +1,9 @@
 require 'nokogiri'
 
 class Fund
-  def initialize(body)
-    @body = body
+  def initialize(key)
+    @key = key
+    @html = nil
   end
 
   def name
@@ -38,14 +39,21 @@ class Fund
     day_before_ratio.start_with?('-')
   end
 
+  def url
+    "https://advance.quote.nomura.co.jp/meigara/nomura2/qsearch.exe?F=users/nomura/detail2&KEY1=#{@key}"
+  end
+
   private
 
-  def html_doc
-    Nokogiri::HTML.parse(@body)
+  def html
+    return @html unless @html.nil?
+
+    web_client = WebClient.new(url)
+    @html = Nokogiri::HTML.parse(web_client.body)
   end
 
   def select_by_xpath(xpath)
-    html_doc.xpath(xpath)
+    html.xpath(xpath)
   end
 
   def width_full_to_half(str)
