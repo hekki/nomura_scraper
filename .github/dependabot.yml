@@ -1,0 +1,21 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "20:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: activesupport
+    versions:
+    - 6.1.1
+    - 6.1.2
+    - 6.1.2.1
+    - 6.1.3
+  - dependency-name: capybara
+    versions:
+    - 3.35.1
+  - dependency-name: slack-ruby-client
+    versions:
+    - 0.16.0
